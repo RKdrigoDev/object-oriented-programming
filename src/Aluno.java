@@ -22,6 +22,14 @@ public class Aluno {
 
         return passou;
     }
+    public void imprimir(){
+        System.out.println("rm: "+ rm);
+        System.out.println("nome: "+ nome);
+        System.out.println("curso: "+ curso);
+        System.out.println("nota 1: "+ nota1);
+        System.out.println("nota 2: "+ nota2);
+
+    }
 
 
 }
