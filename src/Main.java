@@ -13,6 +13,18 @@ public class Main {
     System.out.println(aluno.nome);
     System.out.println(aluno.curso);
     System.out.println(aluno.rm);
+    System.out.println("nota 1 -->");
+    aluno.nota1= sc.nextDouble();
+    System.out.println("nota 2 -->");
+    aluno.nota2= sc.nextDouble();
+        System.out.println(aluno.calcularMedia());
+        if(aluno.verificar()){
+            System.out.println("passou");
+        }
+        else {
+            System.out.println("não passou");
+        }
 
 }
+
 }
