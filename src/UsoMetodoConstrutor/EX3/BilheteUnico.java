@@ -14,17 +14,21 @@ public class BilheteUnico {
         this.usuario=usuario;
         this.tipo=tipo;
     }
-    public void calcularTarifa(){
-        double valor=tarifa;
+    public boolean calcularTarifa(){
+        double value=tarifa;
         if (tipo.equals("Estudante")||tipo.equals("Professor")){
-           valor=tarifa/2;
+           value=tarifa/2;
         }
-        if (saldo<=valor){
-            System.out.println("saldo insuficiente");
-            return;
+        if (saldo<=value){
+            return false;
         }
-        saldo-=valor;
+        saldo-=value;
+        return true;
     }
+    public void carregar(double valor){
+        this.saldo+=valor;
+    }
+
 
 
 }
