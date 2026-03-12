@@ -18,11 +18,11 @@ public class MonitorEnergia {
         for (double valor: consumo){
             media+=valor;
         }
-        return media/consumo.length;
+        return media/contador;
     }
     public double calcularMedia(int inicio, int fim){
         double media=0;
-        for (int i=inicio; i<fim;i++){
+        for (int i=inicio; i<fim+1;i++){
             media+=consumo[i];
 
         }
