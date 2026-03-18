@@ -65,6 +65,7 @@ public class Main {
                 System.out.println("tipo de tarifa | comum | aluno | professor | -->");
                 tipoTarifa=sc.next();
                 bilhete[index]= new BilheteUnico(new Usuario(nome, cpf, tipoTarifa));
+                index++;
             }
     }
     public static BilheteUnico pesquisar(){
