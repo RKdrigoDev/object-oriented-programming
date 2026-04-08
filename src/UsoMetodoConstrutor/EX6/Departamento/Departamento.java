@@ -2,6 +2,8 @@ package UsoMetodoConstrutor.EX6.Departamento;
 
 import UsoMetodoConstrutor.EX6.Funcionario.Funcionario;
 
+import java.text.DecimalFormat;
+
 public class Departamento {
     private String codigo;
     private String nome;
@@ -26,6 +28,7 @@ public class Departamento {
     public String getCodigo() {
         return codigo;
     }
+
     public void adicionarFuncionario(Funcionario f){
         if(index< funcionarios.length && f.isAtivo()){
             funcionarios[index++]=f;
@@ -48,5 +51,29 @@ public class Departamento {
             }
         }
         return total;
+    }
+    public String exibirRelatorio(){
+        DecimalFormat df=new DecimalFormat("#,##0.00");
+        String aux= "";
+        aux+="Departamento: "+nome + "\n";
+        aux+= "total de funcionarios ativos: "+getTotalDeFuncionariosAtivos()+"\n";
+        aux+= "folha de pagamento: "+ df.format(calcularFolhaTotalLiquida())+"\n";
+        return aux;
+    }
+    public Funcionario buscarFuncionario(String matricula){
+        for (int i=0;i<index;i++){
+            if(funcionarios[i].getMatricula().equalsIgnoreCase(matricula)){
+               return funcionarios[i];
+            }
+        }
+        return null;
+    }
+    public void removerFuncionario(String matricula){
+        Funcionario aux= buscarFuncionario(matricula);
+        if(aux!=null){
+            aux.desligar();
+        }
+
+
     }
 }

@@ -13,6 +13,7 @@ public class Funcionario {
         this.nome = nome;
         this.cargo = cargo;
         this.salarioBase = salabioBase;
+        this.ativo=true;
     }
 
     public void definirBonus(double percentual) {
