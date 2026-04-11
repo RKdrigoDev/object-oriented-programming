@@ -5,29 +5,29 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Biblioteca biblioteca= new Biblioteca();
-    static Livro[] livro;
 
     public static void main(String[] args) {
         int opcao;
         String livroN;
-        System.out.println("Digite o nome do livro");
-        livroN=sc.next();
         do {
+            System.out.println("Digite o nome do livro");
+            livroN=sc.next();
         System.out.println("""
                 #### Biblioteca do Bilbo ####
-                    [1] Procurar Livro
-                    [2] Devolver Livro
-                    [3] Emprestar Livro
-                    [4] FInalizar""");
+                    [1] Adicionar Livro
+                    [3] Devolver Livro
+                    [4] Emprestar Livro
+                    [5] FInalizar""");
         opcao=sc.nextInt();
             switch (opcao){
-                case 1 -> biblioteca.buscarLivro(livroN);
-                case 2 -> devolverLivro(livroN);
-                case 3 -> emprestarLivro(livroN);
+                case 1 -> biblioteca.adicionarLivro(livroN);
+                case 2 -> biblioteca.buscarLivro(livroN);
+                case 3 -> devolverLivro(livroN);
+                case 4 -> emprestarLivro(livroN);
                 default -> System.out.println("processo finalizado");
             }
         }
-        while (opcao!=4);
+        while (opcao!=5);
 
 
 
@@ -39,8 +39,9 @@ public class Main {
             System.out.println("o livro está disponivel");
 
         }
-        System.out.println("o livro não está disponivel");
-
+        else {
+            System.out.println("o livro não está disponivel");
+        }
 
     }
 

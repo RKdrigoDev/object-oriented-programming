@@ -27,7 +27,7 @@ public class Biblioteca {
 
     public Livro buscarLivro(String livroN) {
         for (int i=0; i< livro.length;i++){
-            if (livro[i].titulo.equalsIgnoreCase(livroN)) {
+            if (livro[i]!=null&&livro[i].titulo.equalsIgnoreCase(livroN)) {
                 return livro[i];
             }
 
