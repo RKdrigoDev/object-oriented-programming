@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc=new Scanner(System.in);
     static Pedido[] pedidos=new Pedido[100];
+    static int index=0;
 
     public static void main(String[] args){
         int opcao;
@@ -28,39 +29,56 @@ public class Main {
             opcao=sc.nextInt();
             switch (opcao){
                 case 1 -> registrarNovoPedido(cliente);
-                case 2 -> .adicionarPedido();
+                case 2 -> adicionarItem();
 
             }
         }
         while (opcao!=6);
     }
 
-    private static void registrarNovoPedido(Cliente cliente) {
+    private static void adicionarItem() {
         int numeroDePedido;
-        System.out.println("Digite o númro do seu pedido -->");
+
+        System.out.println("digite o seu numero de pedido");
         numeroDePedido=sc.nextInt();
         verificarExiste(numeroDePedido);
-        if (!verificarExiste(numeroDePedido)){
-             for(int i =0; i<pedidos.length;i++){
-                 if(pedidos[i]==null){
-                     pedidos[i]= new Pedido(numeroDePedido,cliente);
-                     return;
-                 }
-             }
+        if (verificarExiste(numeroDePedido)) {
+
 
         }
-
     }
+        else {
+        System.out.println("não existe esse número de pedido ou número errado");
+    }
+}
 
-    private static boolean verificarExiste(int numeroDePedido) {
-        for (int i =0; i<pedidos.length;i++){
-            if (numeroDePedido==pedidos[i].getNumeroPedido()){
-                System.out.println("O pedido já existe");
-                return true;
+private static void registrarNovoPedido(Cliente cliente) {
+    int numeroDePedido;
+    System.out.println("Digite o númro do seu pedido -->");
+    numeroDePedido=sc.nextInt();
+    verificarExiste(numeroDePedido);
+    if (!verificarExiste(numeroDePedido)){
+        for(int i =0; i<pedidos.length;i++){
+            if(pedidos[i]==null){
+                pedidos[i]= new Pedido(numeroDePedido,cliente);
+                index++;
+                return;
             }
         }
-        return false;
+
     }
 
+}
 
+private static boolean verificarExiste(int numeroDePedido) {
+    for (int i =0; i<pedidos.length;i++){
+        if (pedidos[i]!=null&&numeroDePedido==pedidos[i].getNumeroPedido()){
+            System.out.println("O pedido existe");
+            return true;
+        }
+    }
+    return false;
+}
+
+public void main() {
 }
