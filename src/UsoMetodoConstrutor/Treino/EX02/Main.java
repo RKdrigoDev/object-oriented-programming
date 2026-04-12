@@ -8,10 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
         int opcao;
-        Livro livroN;
+
         do {
+            String nome;
             System.out.println("Digite o nome do livro");
-            livroN.titulo=sc.next();
+            nome=sc.next();
+            Livro livroN= new Livro(nome);
         System.out.println("""
                 #### Biblioteca do Bilbo ####
                     [1] Adicionar Livro

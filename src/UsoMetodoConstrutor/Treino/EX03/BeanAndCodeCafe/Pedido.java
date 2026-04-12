@@ -14,11 +14,34 @@ public class Pedido {
         this.index = 0;
         this.status = "ABERTO";
     }
-    public void adicionarItem(ItemPedido item){
-      for (int i =0;i< itens.length;i++){
-          itens[i]=item;
-      }
+    public void adicionarItem(ItemPedido item) {
+        for (int i = 0; i < itens.length; i++) {
+            if (itens[i] == null) {
+                itens[i] = item;
+                index++;
+                return;
+            }
+            System.out.println("a lista de pedido está cheio");
+
+        }
     }
+      public double calcularTotal(){
+        double total=0;
+        for (int i =0; i<index;i++){
+            total+=itens[i].calcularSubtotal();
+        }
+        return total;
+
+        }
+        public void getDados(){
+            System.out.println("Número do Pedido: "+numeroPedido+" Cliente: "+cliente);
+            System.out.println("Itens: ");
+            for (int i=0; i<index; i++){
+                System.out.println(itens[i]);
+            }
+            System.out.println("Valor Total: R$ "+calcularTotal());
+        }
+
 
     public int getNumeroPedido() {
         return numeroPedido;
