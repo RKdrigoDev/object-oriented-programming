@@ -8,10 +8,10 @@ public class Main {
 
     public static void main(String[] args) {
         int opcao;
-        String livroN;
+        Livro livroN;
         do {
             System.out.println("Digite o nome do livro");
-            livroN=sc.next();
+            livroN.titulo=sc.next();
         System.out.println("""
                 #### Biblioteca do Bilbo ####
                     [1] Adicionar Livro
@@ -33,7 +33,7 @@ public class Main {
 
     }
 
-    private static void emprestarLivro(String livroN) {
+    private static void emprestarLivro(Livro livroN) {
         Livro livros =biblioteca.buscarLivro(livroN);
         if (livros!=null){
             System.out.println("o livro está disponivel");
@@ -45,7 +45,7 @@ public class Main {
 
     }
 
-    public static void devolverLivro(String livroN){
+    public static void devolverLivro(Livro livroN){
 
         Livro livros=biblioteca.buscarLivro(livroN);
         if (livros!=null){

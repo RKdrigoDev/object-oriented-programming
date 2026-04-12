@@ -10,7 +10,7 @@ public class Biblioteca {
     public Biblioteca() {
         this.livro = new Livro[20];
     }
-    public void adicionarLivro(String livroN){
+    public void adicionarLivro(Livro livroN){
         Livro livrosAchado=buscarLivro(livroN);
         if (livrosAchado!=null){
             System.out.println("esse livro já está no sistema");
@@ -18,16 +18,16 @@ public class Biblioteca {
             }
         for (int i =0; i<livro.length;i++){
             if (livro[i]==null){
-                livro[i]=new Livro(livroN);
+                livro[i]=livroN;
                 return;
             }
         }
 
     }
 
-    public Livro buscarLivro(String livroN) {
+    public Livro buscarLivro(Livro livroN) {
         for (int i=0; i< livro.length;i++){
-            if (livro[i]!=null&&livro[i].titulo.equalsIgnoreCase(livroN)) {
+            if (livro[i]!=null&&livro[i]==livroN) {
                 return livro[i];
             }
 
